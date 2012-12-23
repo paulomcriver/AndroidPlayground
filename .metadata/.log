@@ -497,3 +497,18 @@ java.lang.NullPointerException
 
 !ENTRY org.eclipse.ui 2 2 2012-12-13 23:09:47.983
 !MESSAGE Invalid property category path: ValidationPropertiesPage (bundle: org.eclipse.wst.xml.ui, propertyPage: org.eclipse.wst.xml.ui.propertyPage.project.validation)
+!SESSION 2012-12-23 18:11:36.550 -----------------------------------------------
+eclipse.buildId=I20120608-1400
+java.version=1.6.0_37
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=tr_TR
+Framework arguments:  -keyring /Users/onurbaykal/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/onurbaykal/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.ui 2 0 2012-12-23 18:11:41.870
+!MESSAGE Warnings while parsing the key bindings from the 'org.eclipse.ui.commands' extension point
+!SUBENTRY 1 org.eclipse.ui 2 0 2012-12-23 18:11:41.870
+!MESSAGE Could not parse key sequence: plug-in='org.eclipse.cdt.make.ui', id='org.eclipse.cdt.make.ui.targetBuildCommand', keySequence='Shift+F9'
+
+!ENTRY org.eclipse.core.net 1 0 2012-12-23 18:11:44.893
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
