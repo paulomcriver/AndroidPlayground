@@ -1,5 +1,7 @@
 package com.onurbaykal.crystallball;
 
+import java.util.Random;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -23,7 +25,26 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String answer = "Yes";
+				String answer = "";
+				
+				Random r = new Random();
+				
+				switch(r.nextInt(4))
+				{
+				case 0:
+					answer = "YES";
+					break;
+				case 1:
+					answer = "NO";
+					break;
+				case 2: 
+					answer = "MAYBE";
+					break;
+				case 3:
+					answer = "NOT A CHANCE";
+					break;
+				}
+				
 				answerLabel.setText(answer);
 			}
 		});
