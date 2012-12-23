@@ -25,27 +25,21 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String answer = "";
+				String answer[] = 
+					{
+						"It is certain",
+						"It is decidedly so",
+						"All signs say yes",
+						"The stars are not aligned",
+						"My reply is no",
+						"It is doubtful",
+						"Better not tell you now",
+						"Concentrate and try again",
+						"Unable to answer now"
+					};
 				
 				Random r = new Random();
-				
-				switch(r.nextInt(4))
-				{
-				case 0:
-					answer = "YES";
-					break;
-				case 1:
-					answer = "NO";
-					break;
-				case 2: 
-					answer = "MAYBE";
-					break;
-				case 3:
-					answer = "NOT A CHANCE";
-					break;
-				}
-				
-				answerLabel.setText(answer);
+				answerLabel.setText(answer[r.nextInt(10)]);
 			}
 		});
     }
