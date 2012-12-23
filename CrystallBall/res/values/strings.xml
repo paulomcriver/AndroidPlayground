@@ -3,5 +3,6 @@
     <string name="app_name">Crystall Ball</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-
+	<string name="englightenButtonText">Enlighten Me!</string>
+	<string name="backgroundDescription">Background</string>
 </resources>
