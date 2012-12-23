@@ -1,7 +1,6 @@
 package com.onurbaykal.crystallball;
 
 import java.util.Random;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,21 +24,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String answer[] = 
-					{
-						"It is certain",
-						"It is decidedly so",
-						"All signs say yes",
-						"The stars are not aligned",
-						"My reply is no",
-						"It is doubtful",
-						"Better not tell you now",
-						"Concentrate and try again",
-						"Unable to answer now"
-					};
-				
-				Random r = new Random();
-				answerLabel.setText(answer[r.nextInt(10)]);
+				answerLabel.setText(CrystallBall.getAnAnswer());
 			}
 		});
     }
