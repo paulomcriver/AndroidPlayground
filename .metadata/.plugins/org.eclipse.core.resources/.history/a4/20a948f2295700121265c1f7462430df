@@ -2,7 +2,6 @@ package com.onurbaykal.crystallball;
 
 import android.app.Activity;
 import android.graphics.drawable.AnimationDrawable;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -16,7 +15,6 @@ public class MainActivity extends Activity {
 	private ImageView mBackImageView;
 	private TextView mAnswerLabel;
 	private Button mAnswerButton;
-	private MediaPlayer mPlayer;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,7 +24,6 @@ public class MainActivity extends Activity {
         mBackImageView = (ImageView) findViewById(R.id.imageView1);
         mAnswerLabel = (TextView) findViewById(R.id.textView1);
         mAnswerButton = (Button) findViewById(R.id.button1); 
-        mPlayer = MediaPlayer.create(this, R.raw.crystal_ball);
         mAnswerButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -46,7 +43,6 @@ public class MainActivity extends Activity {
     	}
     	ballAnimation.start();
     	animateAnswer();
-    	playSound();
     }
     
     private void animateAnswer() {
@@ -54,13 +50,6 @@ public class MainActivity extends Activity {
     	fadeInAnimation.setDuration(1500);
     	fadeInAnimation.setFillAfter(true);
     	mAnswerLabel.setAnimation(fadeInAnimation);
-    }
-    
-    private void playSound() {
-    	if(!mPlayer.isPlaying())
-    	{
-    		mPlayer.start();
-    	}
     }
 
     @Override

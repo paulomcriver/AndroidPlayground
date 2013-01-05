@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
         mBackImageView = (ImageView) findViewById(R.id.imageView1);
         mAnswerLabel = (TextView) findViewById(R.id.textView1);
         mAnswerButton = (Button) findViewById(R.id.button1); 
-        mPlayer = MediaPlayer.create(this, R.raw.crystal_ball);
+        mPlayer = MediaPlayer.create(this, R.raw.crystall_ball);
         mAnswerButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override

@@ -57,10 +57,11 @@ public class MainActivity extends Activity {
     }
     
     private void playSound() {
-    	if(!mPlayer.isPlaying())
+    	if(mPlayer.isPlaying())
     	{
-    		mPlayer.start();
+    		mPlayer.stop();
     	}
+    	mPlayer.start();
     }
 
     @Override
