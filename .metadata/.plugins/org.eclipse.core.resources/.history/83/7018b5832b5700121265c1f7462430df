@@ -35,30 +35,26 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(!mIsAnimating)
-				{
-					mAnswerLabel.setText(CrystallBall.getAnAnswer());
-					animateCrystallBall();
-				}
+				mIsAnimating = true;
+				mAnswerLabel.setText(CrystallBall.getAnAnswer());
+				animateCrystallBall();
 			}
 		});
     }
     
     private void animateCrystallBall() {
-    		animateBackground();
+    	if(!mIsAnimating)
+    	{
+    		mBackImageView.setImageResource(R.drawable.ball_animation);
+	    	AnimationDrawable ballAnimation = (AnimationDrawable) mBackImageView.getDrawable();
+	    	if(ballAnimation.isRunning())
+	    	{
+	    		ballAnimation.stop();
+	    	}
+	    	ballAnimation.start();
 	    	animateAnswer();
 	    	playSound();
-    }
-    
-    private void animateBackground()
-    {
-    	mBackImageView.setImageResource(R.drawable.ball_animation);
-    	AnimationDrawable ballAnimation = (AnimationDrawable) mBackImageView.getDrawable();
-    	if(ballAnimation.isRunning())
-    	{
-    		ballAnimation.stop();
     	}
-    	ballAnimation.start();
     }
     
     private void animateAnswer() {
@@ -71,7 +67,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onAnimationStart(Animation animation) {
 				// TODO Auto-generated method stub
-				mIsAnimating = true;
+				
 			}
 			
 			@Override

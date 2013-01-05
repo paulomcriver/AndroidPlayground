@@ -19,14 +19,13 @@ public class MainActivity extends Activity {
 	private TextView mAnswerLabel;
 	private Button mAnswerButton;
 	private MediaPlayer mPlayer;
-	private boolean mIsAnimating;
+	private bool mIsAnimating;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        mIsAnimating = false;
         mBackImageView = (ImageView) findViewById(R.id.imageView1);
         mAnswerLabel = (TextView) findViewById(R.id.textView1);
         mAnswerButton = (Button) findViewById(R.id.button1); 
@@ -35,23 +34,13 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(!mIsAnimating)
-				{
-					mAnswerLabel.setText(CrystallBall.getAnAnswer());
-					animateCrystallBall();
-				}
+				mAnswerLabel.setText(CrystallBall.getAnAnswer());
+				animateCrystallBall();
 			}
 		});
     }
     
     private void animateCrystallBall() {
-    		animateBackground();
-	    	animateAnswer();
-	    	playSound();
-    }
-    
-    private void animateBackground()
-    {
     	mBackImageView.setImageResource(R.drawable.ball_animation);
     	AnimationDrawable ballAnimation = (AnimationDrawable) mBackImageView.getDrawable();
     	if(ballAnimation.isRunning())
@@ -59,6 +48,8 @@ public class MainActivity extends Activity {
     		ballAnimation.stop();
     	}
     	ballAnimation.start();
+    	animateAnswer();
+    	playSound();
     }
     
     private void animateAnswer() {
@@ -71,13 +62,13 @@ public class MainActivity extends Activity {
 			@Override
 			public void onAnimationStart(Animation animation) {
 				// TODO Auto-generated method stub
-				mIsAnimating = true;
+				
 			}
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				// TODO Auto-generated method stub
-				mIsAnimating = false;
+				
 			}
 
 			@Override
