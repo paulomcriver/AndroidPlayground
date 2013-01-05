@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="top"
     tools:context=".MainActivity" >
 
     <ImageView
@@ -12,16 +13,6 @@
         android:contentDescription="@string/backgroundDescription"
         android:src="@drawable/ball01" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="263dp"
-        android:gravity="center_horizontal"
-        android:textSize="32sp" />
-
     <Button
         android:id="@+id/button1"
         android:layout_width="match_parent"
@@ -31,5 +22,35 @@
         android:text="@string/englightenButtonText"
         android:textSize="@dimen/twenty"
         android:typeface="serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:weightSum="1" >
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="263dp"
+            android:layout_weight="0.6"
+            android:gravity="center_horizontal"
+            android:textSize="32sp" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0.2" />
+
+    </LinearLayout>
 
 </RelativeLayout>
