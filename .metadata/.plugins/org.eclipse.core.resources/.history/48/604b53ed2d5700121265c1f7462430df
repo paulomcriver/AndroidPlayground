@@ -27,8 +27,6 @@ public class MainActivity extends Activity {
 	private SensorManager mSensorManager;
 	private Sensor mAccelerometer;
 	private ShakeDetector mShakeDetector;
-	private AnimationDrawable mBallAnimation;
-	private AlphaAnimation mFadeInAnimation;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,27 +44,6 @@ public class MainActivity extends Activity {
 				animateCrystallBall();
 			}
 		});
-    	mBackImageView.setImageResource(R.drawable.ball_animation);
-    	mBallAnimation = (AnimationDrawable) mBackImageView.getDrawable();
-    	mFadeInAnimation = new AlphaAnimation(0, 1);
-    	mFadeInAnimation.setDuration(1500);
-    	mFadeInAnimation.setFillAfter(true);
-    	mFadeInAnimation.setAnimationListener(new AnimationListener() {
-			
-			@Override
-			public void onAnimationStart(Animation animation) {
-				mIsAnimating = true;
-			}
-			
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				mIsAnimating = false;
-			}
-
-			@Override
-			public void onAnimationRepeat(Animation animation) {
-			}
-    	});
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mShakeDetector = new ShakeDetector(new OnShakeListener() {
@@ -80,13 +57,11 @@ public class MainActivity extends Activity {
     @Override
     public void onResume()
     {
-    	super.onResume();
         mSensorManager.registerListener(mShakeDetector, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
     }
     
     @Override
     public void onPause(){
-    	super.onPause();
     	mSensorManager.unregisterListener(mShakeDetector);
     }
     
@@ -102,15 +77,38 @@ public class MainActivity extends Activity {
     
     private void animateBackground()
     {
-    	if(mBallAnimation.isRunning())
+    	mBackImageView.setImageResource(R.drawable.ball_animation);
+    	AnimationDrawable ballAnimation = (AnimationDrawable) mBackImageView.getDrawable();
+    	if(ballAnimation.isRunning())
     	{
-    		mBallAnimation.stop();
+    		ballAnimation.stop();
     	}
-    	mBallAnimation.start();
+    	ballAnimation.start();
     }
     
     private void animateAnswer() {
-    	mAnswerLabel.setAnimation(mFadeInAnimation);
+    	AlphaAnimation fadeInAnimation = new AlphaAnimation(0, 1);
+    	fadeInAnimation.setDuration(1500);
+    	fadeInAnimation.setFillAfter(true);
+    	mAnswerLabel.setAnimation(fadeInAnimation);
+    	fadeInAnimation.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				mIsAnimating = true;
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
+				mIsAnimating = false;
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+			}
+    	});
     }
     
     private void playSound() {

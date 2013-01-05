@@ -55,11 +55,13 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
 				mIsAnimating = true;
 			}
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
+				// TODO Auto-generated method stub
 				mIsAnimating = false;
 			}
 
